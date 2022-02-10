@@ -21,8 +21,35 @@
             </ul>
         </nav>
     </div>
+    
     <div>
         <h1>Entrée</h1>
+        <br>
+        <table border = 1>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+            {% for mess in message %}
+                <tr>
+                    <td><button onclick="$dialog.showModal()"> {{ mess["name"] }} </button></td>
+                    <td>{{ mess["type"] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
     </div>
+
+    <!-- fenêtre modale : à faire en sorte qu'elle change en focntion du boutton -->
+    {% for mess in message %}
+    <dialog id="mydialog">
+        <h1> {{ mess["name"] }} </h1>
+        <br/>
+        <p> {{ mess["ingredient"] }} </p>
+        <p> {{ mess["instruction"] }} </p>
+        <div class="boutons"><button onclick="$dialog.close()">Fermer</button></div> 
+    </dialog>
+    {% endfor %}
 </body>
 </html>

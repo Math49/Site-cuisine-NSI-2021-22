@@ -23,9 +23,12 @@
     </div>
     <div>
         <h1>Accueil</h1>
-    </div>
-    <div id="liste">
-        <p>{{message}}</p>
-    </div>
-</body>
+        <h1>Fenêtre modale HTML5</h1> 
+	    <dialog id="mydialog"> 
+		    Voici une fenêtre d'information !<br /> 
+		    <p>Elle peut contenir tout type de balises HTML.</p> 
+		    <div class="boutons"><button onclick="$dialog.close()">Fermer</button></div> 
+	    </dialog> 
+	    <button onclick="$dialog.showModal()">Ouvrir en mode modal</button>
+
 </html>
