@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reset.css') }}">
+    <title>Accueil</title>
+</head>
+<body>
+    <!-- navigateur -->
+    <div id="nav">
+        <nav>
+            <ul>
+                <li>
+                    <a href="{{ url_for('main') }}">Accueil</a>
+                    <a href="{{ url_for('entree') }}">Entrée</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+    
+    <!-- Liste recette -->
+    <div>
+        <h1>Entrée</h1>
+        <br>
+        <table border = 1>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>Type</th>
+                </tr>
+            </thead>
+                <form method="POST">
+            {% for mess in recette %}
+                <tr>
+                    <td><input type="submit" name="test" value="{{ mess[0] }}"></td>
+                    <td>{{ mess[2] }}</td>
+                    <td>{{ mess[1] }}</td>
+                </tr>
+            {% endfor %}
+                </form>
+        </table>
+    </div>
+    
+</body>
+</html>
