@@ -1,0 +1,37 @@
+html{
+	background:#302f30 ;
+}
+
+body{
+	background:#212021 ;
+}
+
+header h1{
+	text-align:center;
+	padding-top: 10px;
+}
+
+header img{
+	float:left;
+	width:50px;
+	height:50px;
+	display:block;
+}
+
+.line-1 {
+  height: 4px;
+  background: black;
+}
+
+section article1{
+	text-align:center;
+	paddingé
+	
+p1{
+	text-align:center;
+	margin:10px;
+	border:4px black;
+	padding: 10px;
+}
+
+	
