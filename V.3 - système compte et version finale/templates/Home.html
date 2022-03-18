@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reset.css') }}">
+    <title>Accueil</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div id="logo"></div>
+        {% if connect == True %}
+        <h1><span id="title">Au petit comptoir | <span id="sub-title">Accueil</span></span><span><a id="connection" href="{{ url_for('connection') }}">{{compte[1]}}</a></span></h1>
+        {% else %}
+        <h1><span id="title">Au petit comptoir | <span id="sub-title">Accueil</span></span><span><a id="connection" href="{{ url_for('connection') }}">Connection</a></span></h1>
+        {% endif %}
+        
+    </div>
+    <!-- Navigateur -->
+    <span id="menu"><span id="menu"></span></span>
+    <div class="wrap">
+        <a id="menu" href="{{ url_for('divers') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('entree') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('plat') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('dessert') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('main') }}"><div></div></a>
+    </div>
+
+    <!-- text page Home -->
+    <div id="main">
+        <h1>Bienvenue au Petit Comptoir !</h1>
+        <p>Voici un projet 2021-2022 de NSI, niveau Terminal dans le but d'utiliser des bases de données dans du web.</p>
+        <p>Ce site est un site de cuisine, il est divisé en plusieurs catégories :</p>
+        <ul>
+            <li>Entrée</li>
+            <li>Plat</li>
+            <li>Dessert</li>
+            <li>Et Divers</li>
+        </ul>
+
+        <p>Ce site contient également les fonctionnalités suivantes :</p>
+        <ul>
+            <li>Pouvoir se créer un compte et se connecter avec,</li>
+            <li>Pouvoir mettre des commentaires aux recettes (uniquement aux connectés)</li>
+        </ul>
+
+        <p>Pour poursuivre votre avancé sur ce site, je propose d'aller sur le menu de navigation qui se trouve en haut à droite (le bouton en cercle).</p>
+        <h1>Bonne continuation sur notre site !</h1>
+    </div>
+</body>
+</html>
