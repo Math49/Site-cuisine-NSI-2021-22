@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reset.css') }}">
+    <title>Divers</title>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header">
+        <div id="logo"></div>
+        {% if connect == True %}
+        <h1><span id="title">Au petit comptoir | <span id="sub-title">Divers</span></span><span><a id="connection" href="{{ url_for('connection') }}">{{compte[1]}}</a></span></h1>
+        {% else %}
+        <h1><span id="title">Au petit comptoir | <span id="sub-title">Divers</span></span><span><a id="connection" href="{{ url_for('connection') }}">Connection</a></span></h1>
+        {% endif %}
+        
+    </div>
+    <!-- Navigateur -->
+    <span id="menu"><span id="menu"></span></span>
+    <div class="wrap">
+        <a id="menu" href="{{ url_for('divers') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('entree') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('plat') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('dessert') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('main') }}"><div></div></a>
+    </div>
+    
+    <!-- Liste recette -->
+    <div id="liste">
+        <br>
+        <h1 id="mess">{{ message }}</h1>
+        <br>
+        <form method="POST">
+            {% for mess in recette %}
+            <div id="table">
+                <input type="submit" id="button" name="button" value="{{ mess[0] }}">
+                <p id="name">{{ mess[2] }}</p>
+            </div>
+            {% endfor %}
+        </form>
+    </div>
+    
+</body>
+</html>
