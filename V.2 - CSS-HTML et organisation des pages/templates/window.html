@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='reset.css') }}">
+    <title>{{ name }}</title>
+</head>
+<body>
+    <div id="header">
+        <h1><span id="title">Au petit comptoir | <span id="sub-title">{{ name }}</span></span><span><a id="connection" href="{{ url_for('connection') }}">Connection</a></span></h1>
+    </div>
+    <!-- navigateur -->
+    <span id="menu"><span id="menu"></span></span>
+    <div class="wrap">
+        <a id="menu" href="{{ url_for('divers') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('entree') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('plat') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('dessert') }}"><div></div></a>
+        <a id="menu" href="{{ url_for('main') }}"><div></div></a>
+    </div>
+
+    <!-- recette -->
+    <div>
+        <h2>{{ name }}</h2>
+
+        {% for row in ingr %}
+        <h2>{{ row }}</h2>
+        {% endfor %}
+        {% for ro in instr %}
+        <h2>{{ ro }}</h2>
+        {% endfor %}
+    </div>
+
+    <!-- Commentaire -->
+    <div>
+        <form method="POST" action="/comment">
+            <label>nom</label> : <input type="text" name="pseudo">
+            <label>text</label> : <textarea name="text"></textarea>
+            <input type="submit" name="Envoyer">
+        </form>
+    </div>
+    <div>
+        {% for com in comment %}
+        <ul>
+            <li>{{ com[1] }}</li>
+            <li>{{ com[2] }}</li>
+        </ul>
+        {% endfor %}
+    </div>
+</body>
+</html>
